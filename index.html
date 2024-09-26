@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swadiq - Software Tester Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #0a192f;
+            --text-color: #8892b0;
+            --highlight-color: #64ffda;
+            --secondary-color: #112240;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.3;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5vw;
+        }
+        h1, h2, h3 {
+            color: #ccd6f6;
+        }
+        a {
+            color: var(--highlight-color);
+            text-decoration: none;
+        }
+        .intro {
+            margin-bottom: 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Changed to flex-start for alignment */
+        }
+        .intro-text {
+            flex: 1;
+            text-align: left; /* Ensure text is left-aligned */
+        }
+        .intro h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            margin: 0;
+        }
+        .intro h2 {
+            font-size: clamp(30px, 5vw, 50px);
+            margin: 0;
+            color: var(--text-color);
+        }
+        .intro p {
+            font-size: clamp(16px, 2vw, 20px);
+            max-width: 540px;
+        }
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 20px;
+        }
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .section {
+            margin-bottom: 10vw;
+        }
+        .section h2 {
+            font-size: clamp(24px, 4vw, 32px);
+            margin-bottom: 4vw;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .project {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+        }
+        .project h3 {
+            margin-top: 0;
+            font-size: clamp(18px, 3vw, 24px);
+        }
+        .skills ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 0;
+            list-style-type: none;
+        }
+        .skills li {
+            position: relative;
+            padding-left: 20px;
+            font-size: clamp(14px, 2vw, 18px);
+        }
+        .skills li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+        }
+        .contact {
+            text-align: center;
+        }
+        .contact p {
+            font-size: clamp(16px, 2vw, 20px);
+            margin-bottom: 30px;
+        }
+        .social-links a {
+            font-size: clamp(20px, 4vw, 24px);
+            margin: 0 10px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--highlight-color);
+        }
+        nav {
+            background-color: var(--secondary-color);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: var(--text-color);
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--highlight-color);
+        }
+        .cv-download {
+            background-color: var(--highlight-color);
+            color: var(--bg-color);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .cv-download:hover {
+            background-color: #53d3b9;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 4vw;
+            }
+            .section {
+                margin-bottom: 8vw;
+            }
+            .intro {
+                flex-direction: column; /* Align elements vertically on mobile */
+                align-items: center; /* Center items on mobile */
+            }
+            .intro-text {
+                text-align: center; /* Center text on mobile */
+                margin-bottom: 20px; /* Space between text and image */
+            }
+            .profile-photo {
+                margin-left: 0; /* Remove left margin */
+                margin-bottom: 0; /* Adjust margin for mobile */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 5vw 3vw;
+            }
+            .project {
+                padding: 15px;
+            }
+            .profile-photo {
+                width: 150px; /* Smaller image on mobile */
+                height: 150px; /* Adjust height accordingly */
+            }
+            nav ul {
+                flex-wrap: wrap;
+            }
+            nav li {
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="assets/Thaz.portfolio.pdf" class="cv-download" download="Thaz.portfolio.pdf">Download CV</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="intro">
+            <div class="intro-text">
+                <h1>FATHIMA THAZNI PV</h1>
+                <h2>Developer</h2>
+                <p>I'm a passionate software developer focused on creating efficient, scalable, and user-friendly web and mobile applications. With a strong foundation in coding and a commitment to clean architecture, I aim to bring ideas to life with precision and performance</p>
+            </div>
+            <div class="profile-photo">
+                <img src="images/thaz.pro.jpeg" alt="FATHIMA THAZNI">
+            </div>
+        </section>
+
+
+        <section id="education" class="section">
+            <h2>Education</h2>
+            <h3>Master of Computer Application (MCA)</h3>
+            <p>SRM University Chennai | Online | Sept 2024 - Ongoing</p>
+            <h3>Bachelor of Computer Application (BCA)</h3>
+            <p>University of Calicut | Aug 2020 - Mar 2023</p>
+            <h3>Higher Secondary, Computer Science </h3>
+            <p>SKHSS,Guruvayoor | Jun, 2018 - Mar, 2020</p>
+        </section>
+
+        <section id="experience" class="section">
+            <h2>Experience</h2>
+            <h3>Soften Technologies</h3>
+            <p><strong>Python Developer - Intern</strong> | April 26, 2023 - October 26, 2023</p>
+            <p>Developed and maintained web applications using Django and Flask, focusing on high-performance, scalable code to enhance user experiences. Integrated front-end technologies (HTML5, CSS3, JavaScript, Ajax) with server-side logic in Python to create seamless web application functionalities.</p>
+            
+            <h3>Basari opticals (Work From Home)</h3>
+            <p><strong>Dashboard Manager</strong> | jun 2023 - January 2024</p>
+            <p>Maintaining dynamic dashboards and data visualization solutions to provide actionable insights for decision-making processes across the organization. Assigned and prioritized dashboard-related tasks and projects, coordinating with team members to ensure timely delivery and alignment with organizational goals.</p>
+
+            <h3>Basari opticals</h3>
+            <p><strong>Frontend Developer</strong> | January 2024 - Present</p>
+            <p>Responsible for creating and improving user-friendly interfaces and managing dashboards that display
+                important data. Worked closely with the tech and operations teams to resolve issues and enhance
+                system performance. Focused on making sure the frontend and backend systems work well together,
+                helping the business make informed decisions through real-time reporting and insights</p>
+            
+        </section>
+
+
+        <section class="section projects">
+            <h2>Featured Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <h3>Rent Management System</h3>
+                    <p>Finding the perfect rental home or vehicles and enable vendors to renting of vehicles/home
+                        through an online system.Tools Used: PHP,JAVA,HTML,JAVASCRIPT,SQL.</p>
+                </div>
+                <div class="project">
+                    <h3>Water Delivery</h3>
+                    <p>H20 Water is an aggregator platform for delivering 20-litre water bottles. Our mission is to
+                        make it easy for customers to get water in one step. Customers can easily order water
+                        through our website, and vendors can sell their products using our platform. Developed using
+                        Python and Django</p>
+                </div>
+                <div class="project">
+                    <h3>Shopify Website</h3>
+                    <p>Experienced in developing and managing Shopify websites, customizing themes, and integrating various Shopify apps to enhance functionality. Skilled in setting up and maintaining online stores, optimizing product listings, handling payment gateways, and improving the overall user experience. Proficient in using Shopify Liquid for theme customization, as well as HTML, CSS, and JavaScript for front-end modifications. Successfully implemented SEO strategies, streamlined inventory management, and ensured smooth e-commerce operations to drive sales and customer engagement.</p>
+                </div>
+                <div class="project">
+                    <h3>Pet Consultancy Management System</h3>
+                    <p>This system provides functionalities for pet owners to keep track of their pet's health records, 
+                       appointments, and general well-being. It also facilitates veterinarians in managing their client base 
+                       and scheduling appointments efficiently.
+                       <br>
+                       <strong>Programming Language:</strong> Python, 
+                       <br>
+                       <strong>Framework:</strong> Flask or Django for web development,
+                       <br>
+                       <strong>Database:</strong> SQLite or MySQL for data storage, 
+                       <br>
+                       <strong>Frontend:</strong> HTML, CSS, JavaScript.</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="contact" class="section contact">
+            <h2>Contact Me</h2>
+            <p>I'm always eager to connect! If you'd like to reach out, feel free to connect with me on social media or via email at <a href="mailto:thazniasharaf@gmail.com">thazniasharaf@gmail.com</a>. I look forward to hearing from you!</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/thazni-asharaf-6ba3332a0/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/thazni_asharaf_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/7025970874" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
